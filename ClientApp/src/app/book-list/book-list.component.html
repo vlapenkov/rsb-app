@@ -1,0 +1,29 @@
+<h1 id="tableLabel">Список книг</h1>
+
+
+<div style="margin-bottom: 5px;"><a class="btn btn-success" routerLink="/create-book"> Добавить</a></div>
+
+<div *ngIf="books$ | async as books; else loading">
+  <table class='table table-striped' aria-labelledby="tableLabel" >
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Дата</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of books">
+      <td><a [routerLink]="['/edit-book',book.id ]">
+        {{ book.id }}
+      </a>
+      </td>
+      <td>{{book.name}}</td>
+      <td>{{ book.description }}</td>
+      <td>{{ book.datePublish | date:'dd.MM.yyyy' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #loading >...loading<!--<app-loader></app-loader>--></ng-template>

@@ -1,0 +1,14 @@
+.toast.badge.badge-danger {
+  background-color: #dc3545;
+  position: absolute;
+  top:80px;
+  right:50px;
+  opacity: 0;
+}
+.toast.badge.badge-danger.active {
+  opacity: 1;
+}
+
+
+
+
