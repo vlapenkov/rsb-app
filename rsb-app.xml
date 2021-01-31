@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>rsb-app</name>
+    </assembly>
+    <members>
+        <member name="T:rsb_app.Controllers.BooksController">
+            <inheritdoc cref="T:rsb_app.Controllers.IBooksService"/>
+        </member>
+        <member name="M:rsb_app.Controllers.IBooksService.GetBooks">
+            <summary>
+            Получить все книги
+            </summary>
+            <returns>все книги</returns>
+        </member>
+        <member name="M:rsb_app.Controllers.IBooksService.PutBook(System.Int32,rsb_app.Data.CreateBookDto)">
+            <summary>
+            Изменить книгу
+            </summary>
+            <param name="id">id книги</param>
+            <param name="book">книга</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

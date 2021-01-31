@@ -10,10 +10,11 @@ using rsb_app.Dto;
 using rsb_app.Enitites;
 
 namespace rsb_app.Controllers
-{
+   {
+    ///<inheritdoc cref="IBooksService"/>
     [Route("api/[controller]")]
     [ApiController]
-    public class BooksController : ControllerBase
+    public class BooksController : ControllerBase, IBooksService
     {
         private readonly BooksDbContext _context;
 
@@ -22,7 +23,7 @@ namespace rsb_app.Controllers
             _context = context;
         }
 
-        // GET: api/Books1
+      
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BookDto>>> GetBooks()
         {
@@ -34,7 +35,7 @@ namespace rsb_app.Controllers
             }).ToListAsync();
         }
 
-        // GET: api/Books1/5
+       
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBook(int id)
         {
@@ -48,8 +49,7 @@ namespace rsb_app.Controllers
             return book;
         }
 
-        // PUT: api/Books1/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBook(int id, CreateBookDto book)
         {
