@@ -14,8 +14,7 @@ import {AppState} from '../common/redux/appState';
 })
 export class CreateBookComponent  {
 
- private modelBook: IBook  = {
-    id: 0,
+ private modelBook: IBook  = {   
     name: '',
     description: '',
     datePublish: new Date()
@@ -23,6 +22,19 @@ export class CreateBookComponent  {
   constructor(private _booksService: BooksService,  private _router: Router, private _store: Store<AppState>) {}
 
 
+
+
+  changeDate(newDate) {
+
+      const year = newDate.substr(0, 4);
+      const month = newDate.substr(5, 2);
+      const day = newDate.substr(8, 2);
+      console.log(year, month, day);
+     
+      this.modelBook.datePublish = new Date(Date.UTC(year, parseInt(month) - 1, day));
+
+  
+  }
   createBook()
   {
     this._booksService.createBook( this.modelBook).subscribe(

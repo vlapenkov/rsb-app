@@ -16,13 +16,15 @@
          required
          [(ngModel)]="modelBook.description">
 </div>
-
-<div class="form-group">
-  <label for="title">datePublish</label>
-  <input type="text" class="form-control" id="datePublish" name="datePublish"
-         required
-         [(ngModel)]="modelBook.datePublish">
-</div>
+ 
+  <div class="form-group">
+    <label for="title">datePublish</label>
+    <input type="text" class="form-control" id="datePublish" name="datePublish" #datePublish
+           required
+           [value]="modelBook.datePublish | date:'yyyy-MM-dd'"
+           (focusout)="changeDate(datePublish.value)"
+    >
+  </div>
 
 <button type="submit" [disabled]="!bookForm.form.valid" class="btn btn-primary">Создать</button>
 </form>
